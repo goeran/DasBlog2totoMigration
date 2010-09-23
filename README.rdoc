@@ -1,0 +1,6 @@
+== Introduction
+DasBlog2totoMigration is a tool for migrating a blog from DasBlog to toto.
+
+DasBlog is a blog engine based on .NET. 
+
+Toto is a super lightweight blog engine based on Ruby. 
