@@ -1,0 +1,7 @@
+title: "Visual Studio 2008 running on a machine with a SSD disk installed!"
+author: Gøran Hansen
+date: 2009/03/03
+id: df1a444d-654b-4188-85a9-13643b59a0a6
+tags: hardware;Visual Studio
+
+<p>As you can see, the performance is very good. And by the way, Windows is running inside a virtual machine (VMWare Fusion).</p>  <p> <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/SzW2RaiuN60&amp;hl=en&amp;fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/SzW2RaiuN60&amp;hl=en&amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object> </p>  <p>And no, Visual Studio is not pre-loaded into memory. The startup was initialized right after the machine was booted.</p>

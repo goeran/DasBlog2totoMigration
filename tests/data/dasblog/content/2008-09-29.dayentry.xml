@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-09-29T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt; This screencast was captured at MSDN Live in Trondheim 11. September 2008.  &lt;/p&gt; 		  &lt;div&gt;              &lt;object id="csSWF" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://active.macromedia.com/flash7/cabs/ swflash.cab#version=9,0,28,0" height="375" width="500"&gt;                 &lt;param name="src" value="http://blog.goeran.no/div/MSDN-Live-September-2008/Screencasts/MSDN%20Trondheim%20-%20WPF%20LOB.swf"&gt;                 &lt;param name="bgcolor" value="#1a1a1a"&gt;                 &lt;param name="quality" value="best"&gt;                 &lt;param name="allowScriptAccess" value="always"&gt;                 &lt;param name="allowFullScreen" value="true"&gt;                 &lt;param name="scale" value="showall"&gt;                 &lt;param name="flashVars" value="autostart=false"&gt;                 &lt;embed name="csSWF" src="http://blog.goeran.no/div/MSDN-Live-September-2008/Screencasts/MSDN%20Trondheim%20-%20WPF%20LOB.swf" bgcolor="#1a1a1a" quality="best" allowscriptaccess="always" allowfullscreen="true" scale="showall" flashvars="autostart=false" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" height="375" width="500"&gt;             &lt;/object&gt;         &lt;/div&gt;  &lt;p&gt; &lt;a href="http://blog.goeran.no/div/MSDN-Live-September-2008/SPRINTBoard.zip" target="_blank"&gt;Download&lt;/a&gt; the source code from the presentation. &lt;/p&gt; &lt;p&gt; &lt;a href="http://blog.goeran.no/div/MSDN-Live-September-2008/MSDN%20Live%20H2008%20-%20WPF%20LOB.ppt" target="_blank"&gt;Download&lt;/a&gt; the slides from the presentation. &lt;/p&gt;</Content>
+      <Created>2008-09-29T23:01:31.515+02:00</Created>
+      <Modified>2008-09-30T21:04:56.3644768+02:00</Modified>
+      <EntryId>5e9eb4c4-163d-47aa-bbba-753700e848da</EntryId>
+      <Description />
+      <Title>WPF LOB screencast!</Title>
+      <Categories>MSDN Live;Presentation;screencast;WPF</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+    <Entry>
+      <Content>&lt;p&gt; This screencast was captured at MSDN Live in Trondheim 11. September 2008.  &lt;/p&gt; 		  &lt;div&gt;              &lt;object id="csSWF" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://active.macromedia.com/flash7/cabs/ swflash.cab#version=9,0,28,0" width="500" height="375"&gt;                 &lt;param name="src" value="http://blog.goeran.no/div/MSDN-Live-September-2008/Screencasts/MSDN%20Live%20Trondheim%20-%20Dynamic%20Data.swf"&gt;                 &lt;param name="bgcolor" value="#1a1a1a"&gt;                 &lt;param name="quality" value="best"&gt;                 &lt;param name="allowScriptAccess" value="always"&gt;                 &lt;param name="allowFullScreen" value="true"&gt;                 &lt;param name="scale" value="showall"&gt;                 &lt;param name="flashVars" value="autostart=false"&gt;                 &lt;embed name="csSWF" src="http://blog.goeran.no/div/MSDN-Live-September-2008/Screencasts/MSDN%20Live%20Trondheim%20-%20Dynamic%20Data.swf" bgcolor="#1a1a1a" quality="best" allowscriptaccess="always" allowfullscreen="true" scale="showall" flashvars="autostart=false" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" width="500" height="375"&gt;             &lt;/object&gt;         &lt;/div&gt;&lt;p&gt; &lt;a href="http://blog.goeran.no/div/MSDN-Live-September-2008/Silverlight%20SPRINT.zip" target="_blank"&gt;Download&lt;/a&gt; the source code from the presentation. &lt;/p&gt; &lt;p&gt; &lt;a href="http://blog.goeran.no/div/MSDN-Live-September-2008/MSDN%20Live%20H2008%20-%20ASP.NET%20Dynamic%20Data.ppt" target="_blank"&gt;Download&lt;/a&gt; the slides from the presentation. &lt;/p&gt;</Content>
+      <Created>2008-09-29T22:54:41.466+02:00</Created>
+      <Modified>2008-09-30T21:06:58.8806464+02:00</Modified>
+      <EntryId>5ac5e439-2e44-4052-ba86-caf8938f61f5</EntryId>
+      <Description />
+      <Title>ASP.NET DynamicData screencast!</Title>
+      <Categories>MSDN Live;Presentation;screencast;asp.net dynamic data</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+    <Entry>
+      <Content>&lt;p&gt;&lt;script src="http://blog.goeran.no/div/MSDN-Live-September-2008/Screencasts/swfobject.js" type="text/javascript"&gt;&lt;/script&gt;&lt;/p&gt;  &lt;p&gt;This screencast was captured at MSDN Live in Trondheim 11. September 2008. &lt;/p&gt;  		&lt;div id="media"&gt; 			&lt;div id="noUpdate"&gt; 				&lt;p&gt;The Camtasia Studio video content presented here requires JavaScript to be enabled and the  latest version of the Macromedia Flash Player. If you are you using a browser with JavaScript disabled please enable it now. Otherwise, please update your version of the free Flash Player by &lt;a href="http://www.macromedia.com/go/getflashplayer"&gt;downloading here&lt;/a&gt;. &lt;/p&gt; 			&lt;/div&gt; 		&lt;/div&gt; 		&lt;script type="text/javascript"&gt;
+			// &lt;![CDATA[
+		    var so = new SWFObject("http://blog.goeran.no/div/MSDN-Live-September-2008/Screencasts/MSDN%20Live%20Trondheim%20-%20Silverlight%202.swf", "csSWF", "500", "375", "9.0.28", "#1a1a1a");
+			so.addParam( "quality", "best" );
+			so.addParam( "allowFullScreen", "true" );
+			so.addParam( "scale", "showall" );
+			so.addParam( "allowScriptAccess", "always" );
+			so.addVariable( "autostart", "false" );
+			so.write("media");			
+			// ]]&gt;
+		&lt;/script&gt;   &lt;p&gt;&lt;a href="http://blog.goeran.no/ct.ashx?id=dfb31a4d-625c-4825-9b4d-66f499edc251&amp;amp;url=http%3a%2f%2fblog.goeran.no%2fdiv%2fMSDN-Live-September-2008%2fSilverlight%2520SPRINT.zip" target="_blank"&gt;Download&lt;/a&gt; the source code from the presentation.&lt;/p&gt;  &lt;p&gt;&lt;a href="http://blog.goeran.no/ct.ashx?id=95c50973-0c85-4777-8248-46f26ea73d5f&amp;amp;url=http%3a%2f%2fblog.goeran.no%2fdiv%2fMSDN-Live-September-2008%2fMSDN%2520Live%2520H2008%2520-%2520Silverlight%25202.ppt" target="_blank"&gt;Download&lt;/a&gt; the slides from the presentation.&lt;/p&gt;</Content>
+      <Created>2008-09-29T22:39:17.607+02:00</Created>
+      <Modified>2008-09-29T22:43:37.3110848+02:00</Modified>
+      <EntryId>60338cba-a387-4a94-8e69-6535f3960101</EntryId>
+      <Description />
+      <Title>Silverlight 2 screencast!</Title>
+      <Categories>MSDN Live;Presentation;screencast;silverlight</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-05-02T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;In this post I will tell you a story about how I used TDD (Test Driven Development) to learn new a new API, and how I successfully managed to accomplish my task before expected, and delivered 100% working code (no defects), even though I did something I’ve never done before – interested? I thought so ;) &lt;/p&gt;  &lt;p&gt;In the project I’m currently working on, I was given the task to implement a web service that integrated with a directory service using the LDAP protocol. This was something I’ve never done so far in my career, so I thought it as a fun challenge. The task was simple; I had to implement CR&lt;s&gt;U&lt;/s&gt;D (create, read and delete) behaviors to manipulate entries in the directory. My main concern and the obvious show stopper were to figure out how to integrate with the directory service using the LDAP protocol.&lt;/p&gt;  &lt;p&gt;As always, before I jump into conclusions, I sat down and started to think about how to solve this task. I had a gut feeling that told me I’ve read about this somewhere, about what’s the best way to learn new API’s. And after while it suddenly came to my mind! – It’s called &lt;i&gt;learning tests&lt;/i&gt;. &lt;/p&gt;  &lt;blockquote&gt;   &lt;p&gt;“Jim Newkirk reported on a project in which Learning Tests were routinely written. When new releases of the package arrived, first the tests were run (and fixed, if necessary.) If the tests didn’t run, there was no sense running the application because it certainly wouldn’t run. Once the tests ran, the application ran every time.” – Kent Beck, Test-Driven development by example&lt;/p&gt; &lt;/blockquote&gt;  &lt;p&gt;Since I can’t reveal more about my work, I’m going to use another example in this story. I decided it would be fun to learn how to integrate with Twitter using their API’s and C#. Since integrating with Twitter is completely new for me, the situation will be analogues to the one I had solving the LDAP integration task for the customer.&lt;/p&gt;  &lt;p&gt;Again, before jumping into conclusion, I started out doing some research, and ended up on Twitter’s &lt;a href="http://apiwiki.twitter.com/" target="_blank"&gt;APIWiki&lt;/a&gt;. The WIKI contained lots of good information and after a few minutes I learned that their API’s is built upon the HTTP protocol and that its REST based. In the WIKI they had listed up 3&lt;sup&gt;rd&lt;/sup&gt; party libraries for several different platforms, and I found a few for .NET, and decided to use an Open Source library called Twitterizer. My rationale for using a library was if the library is good, it would be easier for me to produce working code, and I’ll probably do it faster than using the built-in HTTP libraries in the .NET framework.&lt;/p&gt;  &lt;p&gt;If you going to create a Twitter client or another type of application that integrates with Twitter, you probably have to figure out how to;&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Authenticate and logon to Twitter &lt;/li&gt;    &lt;li&gt;Update status &lt;/li&gt;    &lt;li&gt;Get status from friends &lt;/li&gt;    &lt;li&gt;Get list of followers &lt;/li&gt; &lt;/ul&gt;  &lt;h3&gt;Learn to use the library&lt;/h3&gt;  &lt;p&gt;If you are used to TDD, you start out writing tests before any production code. You are probably also familiar with Uncle Bob’s &lt;a href="http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd" target="_blank"&gt;Three Laws of TDD&lt;/a&gt;;&lt;/p&gt;  &lt;ol&gt;   &lt;li&gt;You are not allowed to write any production code unless it is to make a failing unit test pass. &lt;/li&gt;    &lt;li&gt;You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures. &lt;/li&gt;    &lt;li&gt;You are not allowed to write any more production code than is sufficient to pass the one failing unit test. &lt;/li&gt; &lt;/ol&gt;  &lt;p&gt;When writing code, I like to work like this, so I started out writing failing tests to document what I had to learn in order to integrate with Twitter. The first, and the obvious test, was to figure out how to authenticate with Twitter. I also added three more failing tests; update status, get friends status and get followers. Here is what I ended up with;&lt;/p&gt;  &lt;p&gt;&lt;/p&gt;  &lt;div id="codeSnippetWrapper" style="border-right: silver 1px solid; padding-right: 4px; border-top: silver 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: silver 1px solid; width: 97.5%; cursor: text; direction: ltr; max-height: 200px; line-height: 12pt; padding-top: 4px; border-bottom: silver 1px solid; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; background-color: #f4f4f4; text-align: left"&gt;   &lt;div id="codeSnippet" style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;     &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum1" style="color: #606060"&gt;   1:&lt;/span&gt; [Test]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum2" style="color: #606060"&gt;   2:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Authenticate()&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum3" style="color: #606060"&gt;   3:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum4" style="color: #606060"&gt;   4:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum5" style="color: #606060"&gt;   5:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum6" style="color: #606060"&gt;   6:&lt;/span&gt; [Test]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum7" style="color: #606060"&gt;   7:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Get_status_from_friends()&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum8" style="color: #606060"&gt;   8:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum9" style="color: #606060"&gt;   9:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum10" style="color: #606060"&gt;  10:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum11" style="color: #606060"&gt;  11:&lt;/span&gt; [Test]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum12" style="color: #606060"&gt;  12:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Get_followers()&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum13" style="color: #606060"&gt;  13:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum14" style="color: #606060"&gt;  14:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum15" style="color: #606060"&gt;  15:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum16" style="color: #606060"&gt;  16:&lt;/span&gt; [Test]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum17" style="color: #606060"&gt;  17:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Update_status()&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum18" style="color: #606060"&gt;  18:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum19" style="color: #606060"&gt;  19:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I know, I broke Uncle Bob’s law 2 by writing four tests before any production code, but I’m pragmatic, my goal was to solve my task, not follow the laws like a slave. The positive outcome from breaking law was that I now had decomposed the Twitter integration task, into four more fine granulated tasks. I considered this my to-do list. &lt;/p&gt;
+
+&lt;p&gt;The next obvious step was to learn the Twitterizer API, which I did by using the Object Browser in Visual Studio. After fiddling around for a while, I was ready to start solving the first task; how to authenticate a user in order to logon to Twitter. I tested this by login to Twitter, and call the API for receiving status from friends. If the test received status from friends, I could assume the login was successful. After this test passed, the rest was a walk in the park, and here is what I ended up with;&lt;/p&gt;
+
+&lt;div id="codeSnippetWrapper" style="border-right: silver 1px solid; padding-right: 4px; border-top: silver 1px solid; padding-left: 4px; font-size: 8pt; padding-bottom: 4px; margin: 20px 0px 10px; overflow: auto; border-left: silver 1px solid; width: 97.5%; cursor: text; direction: ltr; max-height: 200px; line-height: 12pt; padding-top: 4px; border-bottom: silver 1px solid; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; background-color: #f4f4f4; text-align: left"&gt;
+  &lt;div id="codeSnippet" style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum1" style="color: #606060"&gt;   1:&lt;/span&gt; [Test]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum2" style="color: #606060"&gt;   2:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Authenticate()&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum3" style="color: #606060"&gt;   3:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum4" style="color: #606060"&gt;   4:&lt;/span&gt;     Scenario.New(&lt;span style="color: #006080"&gt;&amp;quot;Logon Twitter&amp;quot;&lt;/span&gt;, scenario =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum5" style="color: #606060"&gt;   5:&lt;/span&gt;     {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum6" style="color: #606060"&gt;   6:&lt;/span&gt;         Twitter twitterClient = &lt;span style="color: #0000ff"&gt;null&lt;/span&gt;;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum7" style="color: #606060"&gt;   7:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum8" style="color: #606060"&gt;   8:&lt;/span&gt;         scenario.Given(&lt;span style="color: #006080"&gt;&amp;quot;user is not logged on&amp;quot;&lt;/span&gt;);&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum9" style="color: #606060"&gt;   9:&lt;/span&gt;         &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum10" style="color: #606060"&gt;  10:&lt;/span&gt;         scenario.When(&lt;span style="color: #006080"&gt;&amp;quot;the user logs on&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum11" style="color: #606060"&gt;  11:&lt;/span&gt;             twitterClient = &lt;span style="color: #0000ff"&gt;new&lt;/span&gt; Twitter(username, password));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum12" style="color: #606060"&gt;  12:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum13" style="color: #606060"&gt;  13:&lt;/span&gt;         scenario.Then(&lt;span style="color: #006080"&gt;&amp;quot;it should be possible to call API&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum14" style="color: #606060"&gt;  14:&lt;/span&gt;             twitterClient.Status.FriendsTimeline());&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum15" style="color: #606060"&gt;  15:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum16" style="color: #606060"&gt;  16:&lt;/span&gt;     }).Execute();&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum17" style="color: #606060"&gt;  17:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum18" style="color: #606060"&gt;  18:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum19" style="color: #606060"&gt;  19:&lt;/span&gt; [Test]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum20" style="color: #606060"&gt;  20:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Get_status_from_friends()&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum21" style="color: #606060"&gt;  21:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum22" style="color: #606060"&gt;  22:&lt;/span&gt;     Scenario.New(&lt;span style="color: #006080"&gt;&amp;quot;Get status from friends&amp;quot;&lt;/span&gt;, scenario =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum23" style="color: #606060"&gt;  23:&lt;/span&gt;     {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum24" style="color: #606060"&gt;  24:&lt;/span&gt;         TwitterStatusCollection friendsStatus = &lt;span style="color: #0000ff"&gt;null&lt;/span&gt;;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum25" style="color: #606060"&gt;  25:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum26" style="color: #606060"&gt;  26:&lt;/span&gt;         scenario.Given(&lt;span style="color: #006080"&gt;&amp;quot;the user is logged on&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum27" style="color: #606060"&gt;  27:&lt;/span&gt;             twitter = &lt;span style="color: #0000ff"&gt;new&lt;/span&gt; Twitter(username, password));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum28" style="color: #606060"&gt;  28:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum29" style="color: #606060"&gt;  29:&lt;/span&gt;         scenario.When(&lt;span style="color: #006080"&gt;&amp;quot;friends status is requested&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum30" style="color: #606060"&gt;  30:&lt;/span&gt;             friendsStatus = twitter.Status.FriendsTimeline());&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum31" style="color: #606060"&gt;  31:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum32" style="color: #606060"&gt;  32:&lt;/span&gt;         scenario.Then(&lt;span style="color: #006080"&gt;&amp;quot;friends status should be received&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum33" style="color: #606060"&gt;  33:&lt;/span&gt;             friendsStatus.Count.ShouldNotEqual(0));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum34" style="color: #606060"&gt;  34:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum35" style="color: #606060"&gt;  35:&lt;/span&gt;     }).Execute();&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum36" style="color: #606060"&gt;  36:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum37" style="color: #606060"&gt;  37:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum38" style="color: #606060"&gt;  38:&lt;/span&gt; [Test]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum39" style="color: #606060"&gt;  39:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Get_followers()&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum40" style="color: #606060"&gt;  40:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum41" style="color: #606060"&gt;  41:&lt;/span&gt;     Scenario.New(&lt;span style="color: #006080"&gt;&amp;quot;Get users' followers&amp;quot;&lt;/span&gt;, scenario =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum42" style="color: #606060"&gt;  42:&lt;/span&gt;     {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum43" style="color: #606060"&gt;  43:&lt;/span&gt;         TwitterUserCollection followers = &lt;span style="color: #0000ff"&gt;null&lt;/span&gt;;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum44" style="color: #606060"&gt;  44:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum45" style="color: #606060"&gt;  45:&lt;/span&gt;         scenario.Given(&lt;span style="color: #006080"&gt;&amp;quot;the user is logged on&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum46" style="color: #606060"&gt;  46:&lt;/span&gt;             twitter = &lt;span style="color: #0000ff"&gt;new&lt;/span&gt; Twitter(username, password));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum47" style="color: #606060"&gt;  47:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum48" style="color: #606060"&gt;  48:&lt;/span&gt;         scenario.When(&lt;span style="color: #006080"&gt;&amp;quot;followers is requested&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum49" style="color: #606060"&gt;  49:&lt;/span&gt;             followers = twitter.User.Followers());&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum50" style="color: #606060"&gt;  50:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum51" style="color: #606060"&gt;  51:&lt;/span&gt;         scenario.Then(&lt;span style="color: #006080"&gt;&amp;quot;followers information should be received&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum52" style="color: #606060"&gt;  52:&lt;/span&gt;             followers.Count.ShouldNotEqual(0));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum53" style="color: #606060"&gt;  53:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum54" style="color: #606060"&gt;  54:&lt;/span&gt;     }).Execute();&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum55" style="color: #606060"&gt;  55:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum56" style="color: #606060"&gt;  56:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum57" style="color: #606060"&gt;  57:&lt;/span&gt; [Test]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum58" style="color: #606060"&gt;  58:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Update_status()&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum59" style="color: #606060"&gt;  59:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum60" style="color: #606060"&gt;  60:&lt;/span&gt;     Scenario.New(&lt;span style="color: #006080"&gt;&amp;quot;Update user status&amp;quot;&lt;/span&gt;, scenario =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum61" style="color: #606060"&gt;  61:&lt;/span&gt;     {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum62" style="color: #606060"&gt;  62:&lt;/span&gt;         scenario.Given(&lt;span style="color: #006080"&gt;&amp;quot;the user is logged on&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum63" style="color: #606060"&gt;  63:&lt;/span&gt;             twitter = &lt;span style="color: #0000ff"&gt;new&lt;/span&gt; Twitter(username, password));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum64" style="color: #606060"&gt;  64:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum65" style="color: #606060"&gt;  65:&lt;/span&gt;         scenario.When(&lt;span style="color: #006080"&gt;&amp;quot;status is updated&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum66" style="color: #606060"&gt;  66:&lt;/span&gt;             twitter.Status.Update(&lt;span style="color: #006080"&gt;&amp;quot;hello world...&amp;quot;&lt;/span&gt;));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum67" style="color: #606060"&gt;  67:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum68" style="color: #606060"&gt;  68:&lt;/span&gt;         scenario.Then(&lt;span style="color: #006080"&gt;&amp;quot;status should be updated&amp;quot;&lt;/span&gt;, () =&amp;gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum69" style="color: #606060"&gt;  69:&lt;/span&gt;             twitter.Status.Show(username).Status.Text.ShouldEqual(&lt;span style="color: #006080"&gt;&amp;quot;hello world...&amp;quot;&lt;/span&gt;));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum70" style="color: #606060"&gt;  70:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: white; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum71" style="color: #606060"&gt;  71:&lt;/span&gt;     }).Execute();&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; direction: ltr; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; text-align: left; border-bottom-style: none"&gt;&lt;span id="lnum72" style="color: #606060"&gt;  72:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Notice that I’ve used a C# DSL (Domain Specific Language) for describing the tests as scenarios. These scenario driven tests is a well known test pattern called AAA (Arrange, Act, and Assert). I’ve developed the C# DSL and &lt;a href="http://code.google.com/p/tinybdd/" target="_blank"&gt;open sourced it&lt;/a&gt; – feel free to use it. &lt;/p&gt;
+
+&lt;h3&gt;The workflow&lt;/h3&gt;
+
+&lt;p&gt;The workflow is simple. Start out by writing failing tests to document what you need do in order to solve your task. When I started, I had one task, integrate with Twitter, after writing the tests I had decomposed it into four minor tasks. This is a famous problem solving technique called &lt;i&gt;&lt;a href="http://en.wikipedia.org/wiki/Problem_solving#Some_problem-solving_techniques" target="_blank"&gt;Divide and Conquer&lt;/a&gt;. &lt;/i&gt;You break down a large, complex problem into smaller, solvable problems. When this is done, you start working on the tests and get them to pass, one by one.&lt;/p&gt;
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Using TDD to learn new API’s is something everyone should do. If you think about it, it’s exactly what you are doing when you are writing production code and using 3&lt;sup&gt;rd&lt;/sup&gt; party libraries today. You write some code, you compile it, and then run it. If it doesn’t work, you spend some time debugging. And you do this incrementally until you’ve solved the task. If you do it the TDD way, you save yourself from lots of debugging time and you end up documenting how to use the 3&lt;sup&gt;rd&lt;/sup&gt; party library. &lt;/p&gt;
+
+&lt;p&gt;There are some other advantages as well. When you hand over the code over to other developers, they can use your learning tests to figure out the same thing you had to figure out, but they can do it by reading your code. Besides that, you also document how a 3&lt;sup&gt;rd&lt;/sup&gt; party library is supposed to work. If they change their API’s or introduce a bug in the next release, your tests will fail, and you can trap this.&lt;/p&gt;
+
+&lt;p&gt;Uncle Bob have some good arguments as well;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“If you want to know how to call a certain API, there is a test that does it. If you want to know how to create a certain object, there is a test that does it. Anything you want to know about the existing system, there is a test that demonstrates it. The tests are like little design documents, little coding examples, that describe how the system works and how to use it.” – &lt;a href="http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd" target="_blank"&gt;Uncle Bob&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Have you ever integrated a third party library into your project? You got a big manual full of nice documentation. At the end there was a thin appendix of examples. Which of the two did you read? The examples of course! That's what the unit tests are! They are the most useful part of the documentation. They are the living examples of how to use the code. They are design documents that are hideously detailed, utterly unambiguous, so formal that they execute, and they cannot get out of sync with the production code.” – &lt;a href="http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd" target="_blank"&gt;Uncle Bob&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So the next time you have to learn a new API, do it by exercising TDD. &lt;/p&gt;
+
+&lt;div class="wlWriterEditableSmartContent" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:ce970b0a-879b-4cf6-82a4-2d211484652e" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px"&gt;&lt;p&gt;Download the &lt;a href="http://blog.goeran.no/content/binary/WindowsLiveWriter/Thebestwaytolearnnewapis_142F4/LearningTestsDemo.zip" target="_blank"&gt;source code&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</Content>
+      <Created>2009-05-02T15:23:16.910536+02:00</Created>
+      <Modified>2009-05-04T17:29:02.6149232+02:00</Modified>
+      <EntryId>fe01bed3-c526-4b76-bb91-f82f4792aece</EntryId>
+      <Description />
+      <Title>The best way to learn new API&amp;rsquo;s; TDD!</Title>
+      <Categories>TDD</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

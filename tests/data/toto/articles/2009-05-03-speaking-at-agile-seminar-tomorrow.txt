@@ -1,0 +1,7 @@
+title: "Speaking at agile seminar tomorrow!"
+author: Gøran Hansen
+date: 2009/05/03
+id: 6d9cc985-68d6-4fff-a55f-3e4d1f280a19
+tags: agile;Presentation
+
+<p>Tomorrow I’m going to give a talk at <a href="http://dataforeningen.no/-mwRbUWj.ips" target="_blank">Smidig utvikling Trondheim 2009</a>, which is a seminar about agile. I’m really looking forward to this seminar because of good content and good speakers. There are some big names keynote speakers as well. </p>  <p>I’m not going to spoil too much of my talk, but I can say I’m going to talk about how teams developing software can be able to work in parallel if they apply loose coupling. </p>

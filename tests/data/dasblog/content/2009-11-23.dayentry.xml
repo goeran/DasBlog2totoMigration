@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-11-23T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;If you read my blog or if you know me personally, you know I'm a big fan of &lt;a href="http://www.objectmentor.com/omTeam/martin_r.html" target="_blank"&gt;Unclebob&lt;/a&gt;. The reason I admire him is simple: he is a major contributor to the developer community. He writes &lt;a href="http://www.objectmentor.com/resources/books.html" target="_blank"&gt;books&lt;/a&gt; and &lt;a href="http://www.objectmentor.com/resources/books.html" target="_blank"&gt;articles&lt;/a&gt;, speaks at conferences and contributes to &lt;a href="http://fitnesse.org/" target="_blank"&gt;Open Source Software&lt;/a&gt;. It inspires me to see that he still have a glowing passion for software development, even though it has been his labor for 35 years. It's the same passion I have right now, but it has only been my labor for 8 years. When I'm turning 40, 50 and 60 I still hope I have this passion in me. &lt;/p&gt;  &lt;p&gt;The cool thing about Unclebob is that he does not only talk the talk, but he also walk the walk. A couple of days ago he published a video where he is doing a &lt;a href="http://katas.softwarecraftsmanship.org/?p=71" target="_blank"&gt;Prime Factors Kata in Ruby&lt;/a&gt;. In this video you'll see mastery of programming. Watch it and enjoy!&lt;/p&gt;  &lt;p&gt;&lt;object width="504" height="400"&gt;&lt;param name="allowfullscreen" value="true" /&gt;&lt;param name="allowscriptaccess" value="always" /&gt;&lt;param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=7762511&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" /&gt;&lt;embed src="http://vimeo.com/moogaloop.swf?clip_id=7762511&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="504" height="400"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/p&gt;  &lt;p&gt;I hope I someday can become a master software craftsman like Unclebob. Right now I'm still on my journey.&lt;/p&gt;  &lt;p&gt;Read more about coding Katas on Unclebob’s &lt;a href="http://blog.objectmentor.com/articles/2009/11/21/whats-all-this-nonsense-about-katas" target="_blank"&gt;blog&lt;/a&gt;.&lt;/p&gt;</Content>
+      <Created>2009-11-23T20:56:47.1730848+01:00</Created>
+      <Modified>2009-11-24T09:07:20.7226336+01:00</Modified>
+      <EntryId>b4d7e183-5a7b-4900-b544-e2ea3ae2d221</EntryId>
+      <Description />
+      <Title>Watch a master software craftsman in action!</Title>
+      <Categories>craftsmanship;programming;programming kata</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>
