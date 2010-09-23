@@ -10,4 +10,4 @@ Open command line/terminal
 
 Goto the folder where you've checked out this repository
 
-Type: Rake migrate_dasblog[/relativeDasBlogDir,/relativeTotoDir,\"You Name\"]
+Type: Rake migrate_dasblog[/relativeDasBlogDir,/relativeTotoDir,"You Name"]
