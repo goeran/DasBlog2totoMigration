@@ -11,7 +11,7 @@ class UrlRewrite
     @toto_dir = toto_dir
   end
   
-  def generate_dasblog_permalinks
+  def permalinks
     old_articles = {}
 
     foreach_article do |metadata| 
@@ -24,15 +24,7 @@ class UrlRewrite
     old_articles
   end
 
-  def foreach_article
-    Dir["#{@toto_dir}/articles/*.*"].each do |file|
-      properties, body = File.read(file).split(/\n\n/, 2)
-      metadata = YAML.load(properties)
-      yield metadata
-    end
-  end
-
-  def generate_dasblog_category_links
+  def category_links
     old_categories = {}
     foreach_article do |metadata|
       if metadata["tags"] != nil then
@@ -46,7 +38,7 @@ class UrlRewrite
     old_categories
   end
 
-  def generate_dasblog_date_links
+  def date_links
     links = {}
     foreach_article do |metadata|
       date = Date.parse(metadata["date"])
@@ -55,12 +47,20 @@ class UrlRewrite
     links
   end
 
-  def generate_dasblog_comment_links
+  def comment_links
     links = {}
       foreach_article do |metadata|
         links["/CommentView,guid,#{metadata["id"]}.aspx"] = Date.parse(metadata["date"]).strftime("/%Y/%m/%d/#{metadata["title"].slugize}/")
       end
     links
+  end
+
+  def foreach_article
+    Dir["#{@toto_dir}/articles/*.*"].each do |file|
+      properties, body = File.read(file).split(/\n\n/, 2)
+      metadata = YAML.load(properties)
+      yield metadata
+    end
   end
 end
 

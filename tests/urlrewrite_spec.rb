@@ -12,7 +12,7 @@ end
 
 describe "When generate dasblog permalinks" do
   before :each do
-    @old_urls = url_rewrite.generate_dasblog_permalinks()
+    @old_urls = url_rewrite.permalinks
   end
   
   it "should return the old urls that looks like this: PermaLink,guid,e55bfb55-ac10-48db-98a4-d28343e0f98a.aspx" do
@@ -30,7 +30,7 @@ end
 
 describe "do regration tests" do
   before :each do
-    @old_urls = url_rewrite.generate_dasblog_permalinks()
+    @old_urls = url_rewrite.permalinks
   end
   
   it "'/PermaLink,guid,5aaf56ce-cbe5-4df1-99e2-55f606d65a8d.aspx' should point to '/2009/07/21/reinstalling-windows-home-server-system-disk/'" do
@@ -40,10 +40,10 @@ end
 
 describe "When generate links" do
   before :each do
-    @links = url_rewrite.generate_dasblog_category_links
-    @links.merge! url_rewrite.generate_dasblog_permalinks
-    @links.merge! url_rewrite.generate_dasblog_date_links
-    @links.merge! url_rewrite.generate_dasblog_comment_links
+    @links = url_rewrite.category_links
+    @links.merge! url_rewrite.permalinks
+    @links.merge! url_rewrite.date_links
+    @links.merge! url_rewrite.comment_links
   end
   
   it "should return a hash" do
@@ -58,7 +58,7 @@ end
 
 describe "When generate dasblog category links" do
   before :each do
-    @old_urls = url_rewrite.generate_dasblog_category_links()
+    @old_urls = url_rewrite.category_links
   end
   
   it "should return old urls that looks like this: /CategoryView,category,Sync Services for ADO.NET.aspx" do
@@ -76,7 +76,7 @@ end
 
 describe "When generate dasblog date links" do
   before :each do
-    @links = url_rewrite.generate_dasblog_date_links()
+    @links = url_rewrite.date_links
   end
   
   it "should return old links that looks like this: /default,month,2007-03.aspx" do
@@ -94,7 +94,7 @@ end
 
 describe "When generate dasblog comment links" do
   it "should return old links that looks like this: /CommentView,guid,5aaf56ce-cbe5-4df1-99e2-55f606d65a8d.aspx" do
-    @links = url_rewrite.generate_dasblog_comment_links
+    @links = url_rewrite.comment_links
     @links.each do |old_link, new_link|
       old_link.match(/^\/CommentView,guid,.*.aspx$/).should_not be nil
     end
