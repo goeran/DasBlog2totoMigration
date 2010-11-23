@@ -2,7 +2,7 @@ require 'toto'
 require 'yaml'
 require 'lib/prettyprint'
 
-include PrettyPrint
+include PrettyPrint2
 
 class UrlRewrite
   def initialize toto_dir

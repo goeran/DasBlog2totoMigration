@@ -2,7 +2,7 @@ require 'htmlentities'
 require 'lib/prettyprint'
 
 class Entry
-  include PrettyPrint
+  include PrettyPrinting
   attr_accessor :Id
   attr_accessor :Date
   attr_accessor :Title
