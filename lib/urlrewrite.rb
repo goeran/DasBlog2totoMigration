@@ -1,9 +1,9 @@
 require 'toto'
-require 'prettyprint'
-
-#include PrettyPrint
+require 'prettyprinter'
 
 class UrlRewrite
+  include PrettyPrinter
+  
   def initialize toto_dir
     if toto_dir == nil then raise "toto dir must be specified" end
       

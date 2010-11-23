@@ -1,9 +1,9 @@
 # coding: utf-8
 require 'htmlentities'
-#require 'prettyprint'
+require 'prettyprinter'
 
 class Entry
-#  include PrettyPrint
+  include PrettyPrinter
   attr_accessor :Id
   attr_accessor :Date
   attr_accessor :Title
