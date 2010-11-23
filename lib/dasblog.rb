@@ -1,10 +1,10 @@
 require 'date'
 require 'rexml/document'
-require 'lib/model/entry'
+require 'model/entry'
 
 class Dasblog
   def initialize(path)
-    @path = path + "/content"
+    @path = path + "content"
   end
   
   def entries

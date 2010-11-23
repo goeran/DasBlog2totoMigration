@@ -1,14 +1,15 @@
+require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'rubygems'
-require 'spec'
-require 'lib/dasblog'
+require 'rspec'
+require 'dasblog'
 require 'date'
 
 av_nr_of_words = 10
 av_char_pr_word = 5
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
   config.before(:each) do
-    @dasblog = Dasblog.new(Dir.pwd + "/tests/data/dasblog/")
+    @dasblog = Dasblog.new(Dir.pwd + "/specs/data/dasblog/")
   end
 end
 
