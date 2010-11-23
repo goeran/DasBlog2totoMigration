@@ -1,5 +1,5 @@
 title: "A journeyman’s diary!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/12/10
 id: 55939bcb-6f80-4cf3-8f37-1f7dac15094d
 tags: craftsmanship

@@ -1,5 +1,5 @@
 title: "Silverlight 2 screencast!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/09/29
 id: 60338cba-a387-4a94-8e69-6535f3960101
 tags: MSDN Live;Presentation;screencast;silverlight

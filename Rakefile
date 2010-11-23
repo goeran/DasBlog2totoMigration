@@ -1,6 +1,9 @@
+@root_dir = File.expand_path(File.join(File.dirname(__FILE__)))
+$: << File.join(@root_dir, "lib")
+
 require 'toto'
-require 'lib/dasblog'
-require 'lib/migrate_to_toto'
+require 'dasblog'
+require 'migrate_to_toto'
 
 task :default => :migrate_dasblog
 

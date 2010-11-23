@@ -1,5 +1,5 @@
 title: "Microsoft embraces jQuery, and so should you!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/10/13
 id: b7d80a19-1d47-4f29-b527-d121a7fbf8be
 tags: jQuery

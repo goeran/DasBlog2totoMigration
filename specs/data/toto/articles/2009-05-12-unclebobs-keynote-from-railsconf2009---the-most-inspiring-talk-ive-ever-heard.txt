@@ -1,5 +1,5 @@
 title: "UncleBob’s keynote from RailsConf2009 - the most inspiring talk I’ve ever heard!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/05/12
 id: 6295c902-e3c8-4e36-9683-4002ac5e9021
 tags: agile;webcast

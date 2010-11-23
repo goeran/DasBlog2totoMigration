@@ -1,5 +1,5 @@
 title: "Watch a master software craftsman in action!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/11/23
 id: b4d7e183-5a7b-4900-b544-e2ea3ae2d221
 tags: craftsmanship;programming;programming kata

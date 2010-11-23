@@ -1,5 +1,5 @@
 title: "Visual Studio 2008 running on a machine with a SSD disk installed!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/03/03
 id: df1a444d-654b-4188-85a9-13643b59a0a6
 tags: hardware;Visual Studio

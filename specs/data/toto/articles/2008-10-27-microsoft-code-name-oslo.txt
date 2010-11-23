@@ -1,5 +1,5 @@
 title: "Microsoft code name \"Oslo\"!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/10/27
 id: f25307d7-6799-491d-b104-0922e953d938
 tags: oslo;pdc08

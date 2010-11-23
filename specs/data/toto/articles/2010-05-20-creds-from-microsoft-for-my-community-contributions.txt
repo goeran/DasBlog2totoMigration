@@ -1,5 +1,5 @@
 title: "Creds from Microsoft for my community contributions!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2010/05/20
 id: e0a4c436-34ae-4d78-ae4a-62d336f7f95b
 tags: Community;mvp

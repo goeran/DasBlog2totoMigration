@@ -1,5 +1,5 @@
 title: "Welcome to the blogosphere Børge!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/09/23
 id: 4122a959-1871-4958-beae-e5094cef5aec
 tags: Community

@@ -1,5 +1,5 @@
 title: "WPF LOB screencast!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/09/29
 id: 5e9eb4c4-163d-47aa-bbba-753700e848da
 tags: MSDN Live;Presentation;screencast;WPF

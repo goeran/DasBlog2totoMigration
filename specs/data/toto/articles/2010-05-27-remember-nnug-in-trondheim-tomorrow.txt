@@ -1,5 +1,5 @@
 title: "Remember NNUG in Trondheim tomorrow!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2010/05/27
 id: 319d6ce1-a841-409f-852d-7f567141c631
 tags: NNUG

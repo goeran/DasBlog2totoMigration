@@ -1,5 +1,5 @@
 title: "Capgemini Norway’s technology blog is online!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/05/13
 id: b2dd0c08-6394-46cd-8bc9-83181a94efda
 tags: capgemini

@@ -1,5 +1,5 @@
 title: "GeekDinner in Oslo first coming Wednesday?"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/01/05
 id: 38017c7a-02d8-4e90-afc4-459992a3d92d
 tags: geekdinner;NNUG

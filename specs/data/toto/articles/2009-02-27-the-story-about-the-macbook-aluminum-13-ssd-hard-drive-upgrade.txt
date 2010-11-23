@@ -1,5 +1,5 @@
 title: "The story about the Macbook Aluminum 13” SSD hard drive upgrade!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/02/27
 id: 18f93215-1129-458f-91d9-fbb4ce41f1ee
 tags: mac

@@ -1,5 +1,5 @@
 title: "ASP.NET DynamicData screencast!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/09/29
 id: 5ac5e439-2e44-4052-ba86-caf8938f61f5
 tags: MSDN Live;Presentation;screencast;asp.net dynamic data

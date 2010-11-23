@@ -1,5 +1,5 @@
 title: "MSDN Live mars 2009"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/03/11
 id: 0813c450-52b8-441a-9251-dcb0a56e1545
 tags: MSDN Live;Norwegian

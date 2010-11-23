@@ -1,5 +1,5 @@
 title: "Visual Studio 2010 and .NET 4.0 CTP!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/10/27
 id: 9a53c079-04d9-4ba3-a2f3-44e2f5d48d36
 tags: pdc08;Visual Studio

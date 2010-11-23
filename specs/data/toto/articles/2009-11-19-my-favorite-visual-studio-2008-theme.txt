@@ -1,5 +1,5 @@
 title: "My favorite Visual Studio 2008 Theme!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/11/19
 id: ee77b00a-caaa-4eac-baf1-c828b4443fc3
 tags: Visual Studio

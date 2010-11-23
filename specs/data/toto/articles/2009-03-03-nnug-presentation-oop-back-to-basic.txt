@@ -1,5 +1,5 @@
 title: "NNUG Presentation: OOP Back to Basic"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/03/03
 id: 226cf1a8-d3ed-4842-a0df-1ed560a7c3b4
 tags: NNUG;Presentation

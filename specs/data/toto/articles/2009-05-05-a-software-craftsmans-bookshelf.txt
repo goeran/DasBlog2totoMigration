@@ -1,5 +1,5 @@
 title: "A Software Craftsman’s Bookshelf"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/05/05
 id: b0df5924-fb90-4506-b2e7-1e15a5e981c6
 tags: books;craftsmanship;programming

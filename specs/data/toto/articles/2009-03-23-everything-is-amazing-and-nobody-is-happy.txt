@@ -1,5 +1,5 @@
 title: "Everything is amazing, and nobody is happy..."
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/03/23
 id: 6f2cde27-ee41-4b3c-821b-1234c68ef7e2
 tags: programming

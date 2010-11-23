@@ -1,5 +1,5 @@
 title: "A Software Craftsman’s 200$ Bookshelf Upgrade!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/05/28
 id: 46f29e55-5369-4dbc-8f60-2bd65e1c5fa4
 tags: books;craftsmanship;programming

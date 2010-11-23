@@ -1,5 +1,5 @@
 title: "Speaking at agile seminar tomorrow!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/05/03
 id: 6d9cc985-68d6-4fff-a55f-3e4d1f280a19
 tags: agile;Presentation

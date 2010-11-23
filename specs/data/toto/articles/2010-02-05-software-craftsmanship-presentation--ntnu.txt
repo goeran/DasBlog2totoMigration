@@ -1,5 +1,5 @@
 title: "Software Craftsmanship presentation @ NTNU"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2010/02/05
 id: 2263d294-378a-4926-9aa6-ad50c765c390
 tags: craftsmanship;Presentation;programming

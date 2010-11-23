@@ -1,5 +1,5 @@
 title: "The best way to learn new API’s; TDD!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/05/02
 id: fe01bed3-c526-4b76-bb91-f82f4792aece
 tags: TDD

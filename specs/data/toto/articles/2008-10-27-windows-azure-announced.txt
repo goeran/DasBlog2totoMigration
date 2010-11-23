@@ -1,5 +1,5 @@
 title: "Windows Azure announced!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/10/27
 id: dcbc0d78-6409-45e7-8afd-66e7b24f96e8
 tags: pdc08;windows azure

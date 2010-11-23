@@ -1,5 +1,5 @@
 title: "I’m joining the Microsoft Regional Director program"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2010/05/20
 id: 95cce4b3-e60c-4e5a-8bb5-fdcdfd03da4a
 tags: Community;Microsoft RD

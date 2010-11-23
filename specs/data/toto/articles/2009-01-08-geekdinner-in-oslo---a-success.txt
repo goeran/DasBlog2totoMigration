@@ -1,5 +1,5 @@
 title: "GeekDinner in Oslo - a success!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2009/01/08
 id: c5c8d211-459e-4d05-a473-95203ef810d9
 tags: geekdinner;NNUG

@@ -1,5 +1,5 @@
 title: "Pimp my Visual Studio 2008 and developer tool belt!"
-author: Gøran Hansen
+author: Jonas Follesø
 date: 2008/10/25
 id: ab922a6a-702e-4ec8-8437-c643b5e6939c
 tags: Visual Studio;software
