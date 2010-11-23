@@ -1,10 +1,11 @@
-require 'rubygems'
+# coding: utf-8
+require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'date'
-require 'spec'
-require 'lib/model/entry'
-require 'lib/migrate_to_toto'
+require 'rspec'
+require 'model/entry'
+require 'migrate_to_toto'
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
   config.before(:each) do
     @entries = []
     @entries.push Entry.new({ :title => "hello world", :date => Date.new(1981, 9, 1)})

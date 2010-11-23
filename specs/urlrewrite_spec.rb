@@ -1,8 +1,9 @@
-require 'rubygems'
-require 'spec'
-require 'lib/urlrewrite'
+# coding: utf-8
+require File.join(File.dirname(__FILE__), 'spec_helper')
+require 'rspec'
+require 'urlrewrite'
 
-url_rewrite = UrlRewrite.new Dir.pwd + "/tests/data/toto"
+url_rewrite = UrlRewrite.new Dir.pwd + "/specs/data/toto"
 
 describe UrlRewrite, "initialize" do
   it "should validate toto dir arg" do

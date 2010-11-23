@@ -1,6 +1,8 @@
+# coding: utf-8
+require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'date'
-require 'spec'
-require 'lib/model/entry'
+require 'rspec'
+require 'model/entry'
 
 describe Entry, "generate toto filename when Title is missing" do
   it "should raise exception" do

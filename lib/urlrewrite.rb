@@ -1,8 +1,7 @@
 require 'toto'
-require 'yaml'
-require 'lib/prettyprint'
+require 'prettyprint'
 
-include PrettyPrint2
+#include PrettyPrint
 
 class UrlRewrite
   def initialize toto_dir
