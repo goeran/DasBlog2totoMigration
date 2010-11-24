@@ -1,0 +1,5 @@
+dasblog_dir: /specs/data/dasblog/
+toto_dir: /specs/data/toto/
+author: Jonas Follesø
+replacements:
+    !ruby/regexp "/http:\/\/blog.goeran.no\/content\/binary\//" : "http://static.goeran.no/"
