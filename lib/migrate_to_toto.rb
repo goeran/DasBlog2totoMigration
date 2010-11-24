@@ -13,5 +13,8 @@ class Migrate_to_toto
       file = File.new("#{@toto_dir}/articles/#{entry.toto_filename}", "w+")
       file.puts entry.to_yaml
     end
+    
+    file = File.new("#{@toto_dir}/redirect.rb", "w+")
+    file.puts "boja"
   end
 end

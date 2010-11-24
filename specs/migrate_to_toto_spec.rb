@@ -33,8 +33,10 @@ describe "When migrate" do
   it "should create files in 'articles' directory for each entry" do
     nr_of_files_created = 0
     file = mock("File", :puts => true)
-    File.stub!(:new).and_return do 
-      nr_of_files_created += 1
+    File.stub!(:new).and_return do |args|
+      if args.include?("redirect.rb") == false
+        nr_of_files_created += 1
+      end
       file
     end
     
@@ -42,4 +44,17 @@ describe "When migrate" do
     
     nr_of_files_created.should be @entries.count
   end  
+  
+  it "should create redirect.rb in root folder" do
+    files_created = {}
+    file = mock("File", :puts => true)
+    File.stub!(:new).and_return do |args|
+      files_created[args] = true
+      file
+    end
+   
+    @migrate_to_toto.migrate @entries
+    
+    files_created[Dir.pwd + "/redirect.rb"].should == true  
+  end
 end
