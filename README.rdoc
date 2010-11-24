@@ -8,6 +8,7 @@ Toto is a super lightweight blog engine based on Ruby.
 == How to use?
 Open command line/terminal
 
-Goto the folder where you've checked out this repository
+Goto the folder where you've checked out this repository and edit the config.yaml file
+to include the correct paths to your DasBlog content folder and your toto blog.
 
-Type: Rake migrate_dasblog[/relativeDasBlogDir,/relativeTotoDir,"You Name"]
+Then run the rake task to migrate the blog: rake migrate_dasblog
