@@ -3,6 +3,14 @@ require 'prettyprinter'
 
 class UrlRewrite
   include PrettyPrinter
+  
+  def all_links articles
+    links = category_links articles
+    links.merge! permalinks articles
+    links.merge! date_links articles
+    links.merge! comment_links articles    
+    links
+  end
     
   def permalinks articles
     old_articles = {}
