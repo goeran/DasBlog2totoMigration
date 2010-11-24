@@ -67,6 +67,12 @@ describe Entry, "generate toto filename regression tests" do
     @entry = Entry.new
   end
   
+  it "should remove invalid chars from: Unlimited free SMS messages, exposed as a .NET Class Library!" do
+    @entry.Date = Date.new 2009, 3, 3
+    @entry.Title = "Unlimited free SMS messages, exposed as a .NET Class Library!"
+    @entry.toto_filename.should eql "2009-03-03-unlimited-free-sms-messages-exposed-as-a-net-class-library.txt"
+  end  
+  
   it "should remove invalid chars from: NNUG Presentation: OOP Back to Basic" do
     @entry.Date = Date.new 2009, 3, 3
     @entry.Title = "NNUG Presentation: OOP Back to Basic"
@@ -136,7 +142,6 @@ describe Entry, "when generate yaml" do
   end
   
   it "should include Tags" do
-    puts @entry.to_yaml
     @entry.to_yaml.include?("tags: blogging;personal;new blog\n").should be true
   end
 end
