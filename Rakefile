@@ -16,6 +16,7 @@ task :migrate_dasblog, :config_file do |t, args|
   validate_arguments args
   
   config = YAML::load(File.open(args[:config_file]))
+  puts config
   validate_config config
   
   puts "migration starts"
