@@ -309,4 +309,4 @@ tags: TDD
 
 <p>So the next time you have to learn a new API, do it by exercising TDD. </p>
 
-<div class="wlWriterEditableSmartContent" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:ce970b0a-879b-4cf6-82a4-2d211484652e" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px"><p>Download the <a href="http://blog.goeran.no/content/binary/WindowsLiveWriter/Thebestwaytolearnnewapis_142F4/LearningTestsDemo.zip" target="_blank">source code</a></p></div>
+<div class="wlWriterEditableSmartContent" id="scid:fb3a1972-4489-4e52-abe7-25a00bb07fdf:ce970b0a-879b-4cf6-82a4-2d211484652e" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px"><p>Download the <a href="http://static.goeran.no/WindowsLiveWriter/Thebestwaytolearnnewapis_142F4/LearningTestsDemo.zip" target="_blank">source code</a></p></div>

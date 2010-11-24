@@ -16,11 +16,10 @@ task :migrate_dasblog, :config_file do |t, args|
   validate_arguments args
   
   config = YAML::load(File.open(args[:config_file]))
-  puts config
   validate_config config
   
   puts "migration starts"
-  dasblog = Dasblog.new(Dir.pwd + config["dasblog_dir"])
+  dasblog = Dasblog.new(Dir.pwd + config["dasblog_dir"], config["replacements"])
   entries = dasblog.entries
   entries.each do |entry|
     entry.Author = config["author"]
