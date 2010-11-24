@@ -100,4 +100,9 @@ describe "When generate dasblog comment links" do
       old_link.match(/^\/CommentView,guid,.*.aspx$/).should_not be nil
     end
   end
+  
+  it "should redirect old links to new links like this: /2009/07/21/reinstalling-windows-home-server-system-disk/" do
+    @links = url_rewrite.comment_links
+    @links["/CommentView,guid,5aaf56ce-cbe5-4df1-99e2-55f606d65a8d.aspx"].should eql "/2009/07/21/reinstalling-windows-home-server-system-disk/"
+  end
 end
