@@ -1,7 +1,0 @@
-title: "Welcome to the blogosphere Børge!"
-author: Jonas Follesø
-date: 2008/09/23
-id: 4122a959-1871-4958-beae-e5094cef5aec
-tags: Community
-
-<p>During the MSDN Live event this September I got to know B&#248;rge Hansen, which works as an Architect advisor for Microsoft Norge. He is a great guy and a software developer at heart. I&#8217;ve not known him for a long time, but I&#8217;ve already had some really good conversations with him regarding problems around software development and architecture. I think B&#248;rge is going to make a difference for the Norwegian Architect community in the near future. So dear reader, if you are interest in software architecture please visit his blog: <a href="http://www.borge3000.no" target="_blank">http://www.borge3000.no</a>. </p>  <blockquote>   <p>&#8220;I am a softwaredeveloper at heart, and my job is to work with and contribute to helping devs and architects to do a better job, do not hesitate to get in touch.&#8221; &#8211; B&#248;rge Hansen</p></blockquote>
