@@ -13,6 +13,22 @@ RSpec.configure do |config|
   end
 end
 
+describe "Search and replace" do
+  it "should be possible to pass in a list of replacements" do    
+    replacements = { /a/ => "A", /b/ => "B" }
+    @dasblog = Dasblog.new(Dir.pwd + "/specs/data/dasblog/", replacements)    
+  end
+  
+  it "should use the replacements to replace text in the content of the Entry" do
+    replacements = {/http:\/\/blog.goeran.no\/content\/binary\// => "http://static.goeran.no/"}
+    @dasblog = Dasblog.new(Dir.pwd + "/specs/data/dasblog/", replacements)    
+    
+    @dasblog.entries.each do |entry|
+      entry.Content.include?("http://blog.goeran.no/content/binary/").should == false
+    end    
+  end
+end
+
 describe "When get entires" do
   it "should return a resultset" do
     @dasblog.entries.count.should_not eql 0

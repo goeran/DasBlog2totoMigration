@@ -3,8 +3,10 @@ require 'rexml/document'
 require 'model/entry'
 
 class Dasblog
-  def initialize(path)
+
+  def initialize(path, replacements={})
     @path = path + "content"
+    @replacements = replacements        
   end
   
   def entries
@@ -31,6 +33,11 @@ class Dasblog
     entry.Content = post_xml.elements["Content"].text
     entry.Tags = post_xml.elements["Categories"].text.split(";")
     entry.Date = DateTime.parse post_xml.elements["Created"].text
+    
+    @replacements.each do |regex,replace|
+      entry.Content = entry.Content.gsub(regex, replace)
+    end
+    
     entry
   end
 end
