@@ -31,7 +31,10 @@ class Dasblog
     entry.Id = post_xml.elements["EntryId"].text
     entry.Title = post_xml.elements["Title"].text
     entry.Content = post_xml.elements["Content"].text
-    entry.Tags = post_xml.elements["Categories"].text.split(";")
+    
+    if(post_xml.elements["Categories"].text != nil)
+      entry.Tags = post_xml.elements["Categories"].text.split(";")
+    end
     entry.Date = DateTime.parse post_xml.elements["Created"].text
     
     @replacements.each do |regex,replace|
