@@ -40,13 +40,13 @@ class Entry
   def generate_valid_filename(str)
     result = remove_html_encoding(self.Title)
     result.gsub!(/\s/, "-")
-    result.gsub!(/(\$|\!|\&|\#|\||\/|\@|;|\.|,|\?|\:|”|\"|’|\')/, "")
+    result.gsub!(/(\$|\!|\&|\#|\||\/|\@|;|\.|,|\?|\:|”|\"|’|\'|\(|\))/, "")
     result
   end
   
   def to_yaml
     id = "id: #{self.Id}"
-    title = "title: \"#{remove_html_encoding(self.Title).gsub /\"/, "\\\""}\""
+    title = "title: \"#{remove_html_encoding(self.Title.strip).gsub /\"/, "\\\""}\""
     author = "author: #{self.Author}"
     date = "date: #{toto_date}"
     tags_str = ""

@@ -67,6 +67,12 @@ describe Entry, "generate toto filename regression tests" do
     @entry = Entry.new
   end
   
+  it "should remove invalid chars from: New build (123)" do
+    @entry.Date = Date.new 2009, 3, 3
+    @entry.Title = "New build (123)"
+    @entry.toto_filename.should eql "2009-03-03-new-build-123.txt"
+  end
+  
   it "should remove invalid chars from: Unlimited free SMS messages, exposed as a .NET Class Library!" do
     @entry.Date = Date.new 2009, 3, 3
     @entry.Title = "Unlimited free SMS messages, exposed as a .NET Class Library!"
@@ -113,7 +119,7 @@ end
 describe Entry, "when generate yaml" do
   before :all do
     @entry = Entry.new
-    @entry.Title = "Programming by \"coincidence\""
+    @entry.Title = "Programming by \"coincidence\" "
     @entry.Author = "goeran"
     @entry.Date = Date.new 1981, 9, 1
     @entry.Content = "hello world"
@@ -121,7 +127,7 @@ describe Entry, "when generate yaml" do
     @entry.Tags.push "blogging", "personal", "new blog"
   end
   
-  it "should exclude the invalid chars in Title" do
+  it "should exclude the invalid chars in Title and trim it" do
     @entry.to_yaml.include?("title: \"Programming by \\\"coincidence\\\"\"").should be true  
   end
   
