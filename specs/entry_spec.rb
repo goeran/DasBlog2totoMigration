@@ -73,6 +73,12 @@ describe Entry, "generate toto filename regression tests" do
     @entry.toto_filename.should eql "2009-03-03-new-build-123.txt"
   end
   
+  it "should remove invalid chars from: Something…" do
+    @entry.Date = Date.new 2009, 3, 3
+    @entry.Title = "Something…"
+    @entry.toto_filename.should eql "2009-03-03-something.txt"    
+  end  
+  
   it "should remove invalid chars from: Unlimited free SMS messages, exposed as a .NET Class Library!" do
     @entry.Date = Date.new 2009, 3, 3
     @entry.Title = "Unlimited free SMS messages, exposed as a .NET Class Library!"
