@@ -45,6 +45,15 @@ class Entry
     result
   end
   
+  def generate_dasblog_friendly_link
+      result = remove_html_encoding(self.Title)
+      result = result.strip
+      result.gsub!(/^[a-z]|\s+[a-z]/) { |a| a.upcase }      
+      result.gsub!(/\s/, "")
+      result.gsub!(/(\$|\!|\&|\#|\||\/|\@|;|\.|,|\?|\:|”|\"|’|\'|\(|\)|…)/, "") 
+      result
+  end
+  
   def to_yaml
     id = "id: #{self.Id}"
     title = "title: \"#{remove_html_encoding(self.Title.strip).gsub /\"/, "\\\""}\""

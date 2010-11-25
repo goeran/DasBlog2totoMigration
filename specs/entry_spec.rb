@@ -60,6 +60,16 @@ describe Entry, "generate toto filename when Title contains invalid chars for a 
   end
 end
 
+describe Entry, "generate DasBlog friendly url" do
+  it "should generate a DasBlog friendly url" do
+    entry = Entry.new
+    entry.Date = DateTime.parse "01.09.1981"
+    entry.Title = "MVVM presentation from NDC2009 on Vimeo"
+    
+    entry.generate_dasblog_friendly_link.should eql "MVVMPresentationFromNDC2009OnVimeo"
+  end
+end
+
 describe Entry, "generate toto filename regression tests" do
   #testing posts that failed to migrate
   

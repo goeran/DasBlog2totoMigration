@@ -31,6 +31,16 @@ describe "When generate dasblog permalinks" do
   end
 end
 
+describe "When generate dasblog friendly links" do
+  before :each do
+    @old_urls = url_rewrite.friendly_links(@entries)   
+  end
+  
+  it "should return the old urls that looks like this: " do   
+    @old_urls["/MVVMPresentationFromNDC2009OnVimeo.aspx"].should eql "/2010/03/07/mvvm-presentation-from-ndc2009-on-vimeo/"
+  end
+end
+
 describe "do regration tests" do
   before :each do
     @old_urls = url_rewrite.permalinks @entries
