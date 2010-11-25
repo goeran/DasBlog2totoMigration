@@ -39,7 +39,8 @@ class Entry
   
   def generate_valid_filename(str)
     result = remove_html_encoding(self.Title)
-    result.gsub!(/\s/, "-")
+    result = result.strip
+    result.gsub!(/\s/, "-")    
     result.gsub!(/(\$|\!|\&|\#|\||\/|\@|;|\.|,|\?|\:|”|\"|’|\'|\(|\)|…)/, "")
     result
   end

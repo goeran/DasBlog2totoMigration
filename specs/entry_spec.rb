@@ -67,6 +67,12 @@ describe Entry, "generate toto filename regression tests" do
     @entry = Entry.new
   end
   
+  it "should trim title before creating filename" do
+    @entry.Date = Date.new 2009, 3, 3
+    @entry.Title = "Title   "
+    @entry.toto_filename.should eql "2009-03-03-title.txt"
+  end
+  
   it "should remove invalid chars from: New build (123)" do
     @entry.Date = Date.new 2009, 3, 3
     @entry.Title = "New build (123)"
