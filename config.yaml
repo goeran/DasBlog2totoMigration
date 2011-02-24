@@ -1,5 +1,5 @@
 dasblog_dir: "/../dasblog/"
-toto_dir: "/../jonas.follesoe.no/"
+toto_dir: "/../temp/"
 author: Jonas Follesø
 replacements:
     !ruby/regexp "/http:\/\/jonas.follesoe.no\/content\/binary\//" : "http://static.follesoe.no/"

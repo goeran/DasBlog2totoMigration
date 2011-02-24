@@ -3,13 +3,17 @@ $: << File.join(@root_dir, "lib")
 
 require 'toto'
 require 'dasblog'
+require 'comments'
 require 'migrate_to_toto'
 
 task :default => :migrate_dasblog
 
+desc "Migrating comments."
+task :migrate_comments, :config_file do |t, args|
+end
+
 desc "Migrate from dasblog."
 task :migrate_dasblog, :config_file do |t, args|    
-  
   if args[:config_file] == nil
     args = {:config_file => "config.yaml"}
   end  
