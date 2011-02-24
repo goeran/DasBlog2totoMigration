@@ -27,17 +27,26 @@ class Comments
         
         url = comment_xml.elements["AuthorHomepage"].text
         if(url != nil)
-          comment.Urls.push get_domain(url)
-        end
+          comment.Urls = comment.Urls + get_domain(url)
+        end    
         
-        comment.Content = comment_xml.elements["Content"].text[0...200]
+        content = comment_xml.elements["Content"].text
+        comment.Urls = comment.Urls + get_domain(content)
+        comment.Content = content[0...200]
+        
         items.push comment
       end
     end
   end
   
-  def get_domain(url)    
-    url[/http:\/\/([^?#\/]+)/, 1]
+  def get_domain(url)  
+    result = [] 
+     
+    url.scan(/http:\/\/([^?#\/]+)/).each do |item|
+      result.push item[0]
+    end
+    
+    result
   end
   
   def items
