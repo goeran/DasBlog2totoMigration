@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-05-12T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;If you are a software developer and consider yourself as a professional, you should watch this presentation. Robert C. Martin aka UncleBob has been a programmer for 40 years, written tons of &lt;a href="http://www.objectmentor.com/resources/omi_reports_index.html" target="_blank"&gt;articles&lt;/a&gt; and some really good &lt;a href="http://blog.goeran.no/PermaLink,guid,b0df5924-fb90-4506-b2e7-1e15a5e981c6.aspx"&gt;books&lt;/a&gt;. He has worked very hard to promote professionalism and craftsmanship to software developers. In this keynote you’ll see him talk about that. Watch and learn!&lt;/p&gt;  &lt;p&gt;&lt;/p&gt; &lt;center&gt;&lt;script type="text/javascript" src="http://blip.tv/scripts/pokkariPlayer.js?ver=2008010901"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="http://blip.tv/syndication/write_player?skin=js&amp;amp;posts_id=2099970&amp;amp;source=3&amp;amp;autoplay=true&amp;amp;file_type=flv&amp;amp;player_width=504&amp;amp;player_height=360"&gt;&lt;/script&gt;    &lt;div id="blip_movie_content_2099970"&gt;&lt;a onclick="play_blip_movie_2099970(); return false;" href="http://blip.tv/file/get/RailsConf-RailsConf09RobertMartinWhatKilledSmalltalkCouldKillRuby751.flv" rel="enclosure"&gt;&lt;img title="Click to play" height="360" alt="Video thumbnail. Click to play" src="http://blip.tv/file/get/RailsConf-RailsConf09RobertMartinWhatKilledSmalltalkCouldKillRuby751.flv.jpg" width="504" border="0" /&gt;&lt;/a&gt;       &lt;br /&gt;&lt;a onclick="play_blip_movie_2099970(); return false;" href="http://blip.tv/file/get/RailsConf-RailsConf09RobertMartinWhatKilledSmalltalkCouldKillRuby751.flv" rel="enclosure"&gt;Click to play&lt;/a&gt;      &lt;br /&gt;&lt;a href="http://railsconf.blip.tv/file/2089545/" target="_blank"&gt;Click to goto source&lt;/a&gt;&lt;/div&gt; &lt;/center&gt;  &lt;p&gt;&lt;/p&gt;  &lt;p&gt;Thanks to &lt;a href="http://blog.objectmentor.com/" target="_blank"&gt;UncleBob&lt;/a&gt; for giving us such a great presentation. And thanks to &lt;a href="http://iridescence.no/" target="_blank"&gt;Fredrik&lt;/a&gt; for pointing out this video for me.&lt;/p&gt;</Content>
+      <Created>2009-05-12T22:29:38.2518624+02:00</Created>
+      <Modified>2009-05-12T22:39:31.244544+02:00</Modified>
+      <EntryId>6295c902-e3c8-4e36-9683-4002ac5e9021</EntryId>
+      <Description />
+      <Title>UncleBob&amp;rsquo;s keynote from RailsConf2009 &amp;ndash; the most inspiring talk I&amp;rsquo;ve ever heard!</Title>
+      <Categories>agile;webcast</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

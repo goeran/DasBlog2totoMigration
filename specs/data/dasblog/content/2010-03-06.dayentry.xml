@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2010-03-06T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Last year I gave a presentation on the MVVM design pattern at the Norwegian Developer Conference. Most of the presentations from NDC2009 was recorded and made available online, including mine. However, the user experience of the &lt;a href="http://arkiv.ndc2009.no/agenda.aspx?cat=1071&amp;amp;id=1813"&gt;video content on the NDC site&lt;/a&gt; isn’t the best. Playing a video requires multiple clicks, and the videos are only available in WMV format. &lt;/p&gt;  &lt;p&gt;The feedback I’ve gotten on the presentation is so good that I decided to make it a bit more discoverable by &lt;a href="http://vimeo.com/9765330"&gt;uploading it to Vimeo&lt;/a&gt;. In addition to the MVVM presentation I have also uploaded &lt;a href="http://vimeo.com/9964528"&gt;my lightning talk from Smidig 2009&lt;/a&gt; (in Norwegian) as well as my &lt;a href="http://vimeo.com/9967222"&gt;Silverlight talk from TechEd New Zealand 2008&lt;/a&gt;. &lt;/p&gt;  &lt;p&gt;If you want to watch all the content from NDC2009 you can download it &lt;a href="http://blogs.msdn.com/grothaug/pages/downloadable-ndc2009-videos.aspx"&gt;nicely packaged as one big torrent file&lt;/a&gt;. Oh, and I haven’t made an announcement on the blog yet, but I will be &lt;a href="http://www.ndc2010.no/index.aspx"&gt;speaking at this year’s NDC&lt;/a&gt;.&lt;/p&gt; &lt;object width="670" height="536"&gt;&lt;param name="allowfullscreen" value="true" /&gt;&lt;param name="allowscriptaccess" value="always" /&gt;&lt;param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=9765330&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=ff0179&amp;amp;fullscreen=1" /&gt;&lt;embed src="http://vimeo.com/moogaloop.swf?clip_id=9765330&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=ff0179&amp;amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="670" height="536"&gt;&lt;/embed&gt;&lt;/object&gt;  &lt;p&gt;&lt;a href="http://vimeo.com/9765330"&gt;MVVM Design Pattern NDC2009&lt;/a&gt; from &lt;a href="http://vimeo.com/follesoe"&gt;Jonas Follesø&lt;/a&gt; on &lt;a href="http://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;  &lt;div style="width: 425px" id="__ss_1664018"&gt;&lt;strong style="margin: 12px 0px 4px; display: block"&gt;&lt;a title="MVVM Design Pattern NDC2009" href="http://www.slideshare.net/follesoe/mvvm-design-pattern-ndc2009"&gt;MVVM Design Pattern NDC2009&lt;/a&gt;&lt;/strong&gt;&lt;object width="425" height="355"&gt;&lt;param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=mvvmpresentationndc2009-090630160910-phpapp02&amp;amp;stripped_title=mvvm-design-pattern-ndc2009" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;param name="allowScriptAccess" value="always" /&gt;&lt;embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=mvvmpresentationndc2009-090630160910-phpapp02&amp;amp;stripped_title=mvvm-design-pattern-ndc2009" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"&gt;&lt;/embed&gt;&lt;/object&gt;    &lt;div style="padding-bottom: 12px; padding-left: 0px; padding-right: 0px; padding-top: 5px"&gt;View more &lt;a href="http://www.slideshare.net/"&gt;presentations&lt;/a&gt; from &lt;a href="http://www.slideshare.net/follesoe"&gt;follesoe&lt;/a&gt;.&lt;/div&gt; &lt;/div&gt;</Content>
+      <Created>2010-03-07T00:22:54.2446528+01:00</Created>
+      <Modified>2010-03-07T00:22:54.2446528+01:00</Modified>
+      <EntryId>c5494709-8c5f-4aba-abd6-53aa86ab56ba</EntryId>
+      <Description />
+      <Title>MVVM presentation from NDC2009 on Vimeo</Title>
+      <Categories>Conferences;MVVM;Presentation;Silverlight</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

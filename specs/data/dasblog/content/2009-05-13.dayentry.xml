@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-05-13T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;My employer, Capgemini, just released a &lt;a href="http://www.no.capgemini.com/teknologiblogg/" target="_blank"&gt;Norwegian technology blog&lt;/a&gt;. We have been working on this project for a while and have finally released it! Puh!&lt;/p&gt;  &lt;p&gt;&lt;a href="http://www.no.capgemini.com/teknologiblogg/2009/05/teknisk_gjeld.php" target="_blank"&gt;My first post&lt;/a&gt; on this blog was about &lt;a href="http://www.youtube.com/watch?v=pqeJFYwnkjE" target="_blank"&gt;technical debt&lt;/a&gt;. I was so inspired by Ward Cunningham’s metaphor that I just had to write about it. Anyway, the content of the blog is in Norwegian. If you are a non-Norwegian reader, it’s probably not in your area of interest.&lt;/p&gt;  &lt;p&gt;Feel free to visit &lt;a href="http://www.no.capgemini.com/teknologiblogg/" target="_blank"&gt;our blog&lt;/a&gt; and &lt;a href="http://twitter.com/capgemininorge" target="_blank"&gt;follow us on twitter&lt;/a&gt;.&lt;/p&gt;</Content>
+      <Created>2009-05-13T15:53:49.3196736+02:00</Created>
+      <Modified>2009-05-13T15:54:34.795064+02:00</Modified>
+      <EntryId>b2dd0c08-6394-46cd-8bc9-83181a94efda</EntryId>
+      <Description />
+      <Title>Capgemini Norway&amp;rsquo;s technology blog is online!</Title>
+      <Categories>capgemini</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

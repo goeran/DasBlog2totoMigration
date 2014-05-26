@@ -1,7 +1,0 @@
-title: "Visual Studio 2010 and .NET 4.0 CTP!"
-author: Gøran Hansen
-date: 2008/10/27
-id: 9a53c079-04d9-4ba3-a2f3-44e2f5d48d36
-tags: pdc08;Visual Studio
-
-<p>Just picked up that Microsoft has released Visual Studio 2010 and .NET 4.0 CTP. Go and grab the bits <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=922b4655-93d0-4476-bda4-94cf5f8d4814&amp;DisplayLang=en" target="_blank">here</a> and enjoy! </p>

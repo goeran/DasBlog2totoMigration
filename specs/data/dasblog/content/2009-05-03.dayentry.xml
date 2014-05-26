@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-05-03T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Tomorrow I’m going to give a talk at &lt;a href="http://dataforeningen.no/-mwRbUWj.ips" target="_blank"&gt;Smidig utvikling Trondheim 2009&lt;/a&gt;, which is a seminar about agile. I’m really looking forward to this seminar because of good content and good speakers. There are some big names keynote speakers as well. &lt;/p&gt;  &lt;p&gt;I’m not going to spoil too much of my talk, but I can say I’m going to talk about how teams developing software can be able to work in parallel if they apply loose coupling. &lt;/p&gt;</Content>
+      <Created>2009-05-03T16:56:55.0961888+02:00</Created>
+      <Modified>2009-05-03T16:56:55.0961888+02:00</Modified>
+      <EntryId>6d9cc985-68d6-4fff-a55f-3e4d1f280a19</EntryId>
+      <Description />
+      <Title>Speaking at agile seminar tomorrow!</Title>
+      <Categories>agile;Presentation</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

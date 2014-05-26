@@ -1,0 +1,7 @@
+title: "Remember NNUG in Trondheim tomorrow!"
+author: Jonas Follesø
+date: 2010/05/27
+id: 319d6ce1-a841-409f-852d-7f567141c631
+tags: NNUG
+
+<p>The theme of the user group meeting will be Visual Studio 2010 and .NET 4. Here is the agenda:</p>  <p>18:00 – 19:00 News in Visual Studio 2010 and C# 4 by <a href="http://www.joaroyen.com/" target="_blank">Joar Øyen</a></p>  <p>19:00 – 20:00 Lightning talks </p>  <ul>   <li>OData and WCF Services by <a href="http://blog.fossmo.net/" target="_blank">Pål Fossmo</a></li>    <li>Visual Studio 2010 plugins by <a href="http://jonas.follesoe.no" target="_blank">Jonas Follesø</a></li>    <li>T4 Templates by me</li>    <li>Continuous testing by <a href="http://ox.no/" target="_blank">Håvard Stranden</a></li> </ul>  <p>Please visit the <a href="http://www.nnug.no/Avdelinger/Trondheim/Moter/NNUG-Trondheim---27-mai-2010/" target="_blank">NNUG website</a> for more information. If you come over tomorrow you’ll get free pizza and the opportunity to meet a lot of interesting people.</p>

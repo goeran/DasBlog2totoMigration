@@ -1,34 +1,49 @@
 require 'toto'
-require 'yaml'
-require 'lib/prettyprint'
-
-include PrettyPrint
+require 'prettyprinter'
 
 class UrlRewrite
-  def initialize toto_dir
-    if toto_dir == nil then raise "toto dir must be specified" end
-      
-    @toto_dir = toto_dir
-  end
+  include PrettyPrinter
   
-  def permalinks
+  def all_links articles
+    links = category_links articles
+    links.merge! permalinks articles
+    links.merge! friendly_links articles
+    links.merge! date_links articles
+    links.merge! comment_links articles    
+    links
+  end
+    
+  def permalinks articles
     old_articles = {}
 
-    foreach_article do |metadata| 
-      if metadata["id"] != nil then
-        old_url = "/PermaLink,guid,#{metadata["id"]}.aspx"
-        old_articles[old_url] = Date.parse(metadata["date"]).strftime("/%Y/%m/%d/#{metadata["title"].slugize}/")
+    articles.each do |metadata|
+      if metadata.Id != nil then
+        old_url = "/PermaLink,guid,#{metadata.Id}.aspx"
+        old_articles[old_url] = metadata.Date.strftime("/%Y/%m/%d/#{metadata.Title.slugize}/")
       end
     end
 
     old_articles
   end
+  
+  def friendly_links articles
+    old_articles = {}
 
-  def category_links
+    articles.each do |metadata|
+      if metadata.Id != nil then
+        old_url = "/#{metadata.generate_dasblog_friendly_link}.aspx"
+        old_articles[old_url] = metadata.Date.strftime("/%Y/%m/%d/#{metadata.Title.slugize}/")
+      end
+    end
+
+    old_articles  
+  end
+
+  def category_links articles
     old_categories = {}
-    foreach_article do |metadata|
-      if metadata["tags"] != nil then
-        metadata["tags"].split(";").each do |tag|
+    articles.each do |metadata|
+      if metadata.Tags != nil then
+        metadata.Tags.each do |tag|
           old_url = "/CategoryView,category,#{tag.gsub /\s/, "%2B"}.aspx"
           old_categories[old_url] = "/"
         end
@@ -38,29 +53,21 @@ class UrlRewrite
     old_categories
   end
 
-  def date_links
+  def date_links articles
     links = {}
-    foreach_article do |metadata|
-      date = Date.parse(metadata["date"])
+    articles.each do |metadata|
+      date = metadata.Date
       links["/default,month,#{date.year}-#{pretty_int date.month}.aspx"] = "/#{date.year}/#{pretty_int date.month}/"
     end
     links
   end
 
-  def comment_links
+  def comment_links articles
     links = {}
-      foreach_article do |metadata|
-        links["/CommentView,guid,#{metadata["id"]}.aspx"] = Date.parse(metadata["date"]).strftime("/%Y/%m/%d/#{metadata["title"].slugize}/")
-      end
-    links
-  end
-
-  def foreach_article
-    Dir["#{@toto_dir}/articles/*.*"].each do |file|
-      properties, body = File.read(file).split(/\n\n/, 2)
-      metadata = YAML.load(properties)
-      yield metadata
+    articles.each do |metadata|
+      links["/CommentView,guid,#{metadata.Id}.aspx"] = metadata.Date.strftime("/%Y/%m/%d/#{metadata.Title.slugize}/")
     end
+    links
   end
 end
 

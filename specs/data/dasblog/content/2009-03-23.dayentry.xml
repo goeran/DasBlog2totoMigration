@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-03-23T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;A colleague of mine showed me this YouTube video a week ago, and I thought was so much fun that I had to share it with you. Please take 4 minutes to watch the video - it’s worth it. You’ll see the comedian Louis C.K. talks about how ungrateful we are, even though we live in this amazing world with all this fancy technology that makes our lives easier to live. &lt;/p&gt;  &lt;p&gt;&lt;object width="425" height="344"&gt;&lt;param name="movie" value="http://www.youtube.com/v/jETv3NURwLc&amp;amp;hl=sv&amp;amp;fs=1"&gt;&lt;/param&gt;&lt;param name="allowFullScreen" value="true"&gt;&lt;/param&gt;&lt;param name="allowscriptaccess" value="always"&gt;&lt;/param&gt;&lt;embed src="http://www.youtube.com/v/jETv3NURwLc&amp;amp;hl=sv&amp;amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/p&gt;  &lt;p&gt;Louis made some darn good points, and he made me think about how many unhappy fellow engineers I’ve spoken to lately – many. This made me thing about how it would be to work in the early days in the IT-industry, where the tools were much more primitive. In this age of the industry we are capable to create it-systems to automate most of our daily routines, but back then the computers were mostly used in the field of science. Nowadays even grandma can pay her bills using a web browser without leaving her home to visit the bank. This enables her to spend more time doing whatever she think is important, like watching her grandkids. This made me think about a quote I read in The Pragmatic Programmer.&lt;/p&gt;  &lt;p&gt;“Civilization advances by extending the number of important operations we can perform without thinking.” - Alfred North Whitehead &lt;/p&gt;  &lt;p&gt;So let’s do something fun; let’s have a look at how it was like to be a programmer 50+ years ago, and try to imagine how much work it would take to get the computers to “work” for us back then compared to nowadays .&lt;/p&gt;  &lt;h3&gt;Programming today and 50+ years ago &lt;/h3&gt;  &lt;p&gt;Today there are many high level general purpose programming languages. Programming nowadays is more like having a conversation with the computer, and we can express ourselves in a language similar to English. &lt;/p&gt;  &lt;p&gt;If you use a statically typed language like C# or Java, you need to compile the code, which will output assembler code (machine code) that can execute on a computer. C# and Java are a special case, because the assembler code runs inside a virtual machine, which means that the assembler code is more high level than regular X86 assembler code. Anyway, this abstracts us away from the nitty gritty details of machine languages, which is hard to program, understand, read and maintain.&lt;/p&gt;  &lt;p&gt;So let’s do something fun, let’s implement the Fibbonaci algorithm in C# and in X86 assembler code (machine level code).&lt;/p&gt;  &lt;p&gt;C#   &lt;br /&gt; &lt;/p&gt;  &lt;div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper"&gt;   &lt;div style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet"&gt;     &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum1"&gt;   1:&lt;/span&gt; &lt;span style="color: #0000ff"&gt;class&lt;/span&gt; Program&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum2"&gt;   2:&lt;/span&gt; {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum3"&gt;   3:&lt;/span&gt;     &lt;span style="color: #0000ff"&gt;static&lt;/span&gt; &lt;span style="color: #0000ff"&gt;void&lt;/span&gt; Main(&lt;span style="color: #0000ff"&gt;string&lt;/span&gt;[] args)&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum4"&gt;   4:&lt;/span&gt;     {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum5"&gt;   5:&lt;/span&gt;         Console.WriteLine(&lt;span style="color: #006080"&gt;&amp;quot;23rd fibonacci number: {0}&amp;quot;&lt;/span&gt;, Fibonacci(23));&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum6"&gt;   6:&lt;/span&gt;         Console.ReadKey();&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum7"&gt;   7:&lt;/span&gt;     }&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum8"&gt;   8:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum9"&gt;   9:&lt;/span&gt;     &lt;span style="color: #0000ff"&gt;static&lt;/span&gt; &lt;span style="color: #0000ff"&gt;int&lt;/span&gt; Fibonacci(&lt;span style="color: #0000ff"&gt;int&lt;/span&gt; n)&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum10"&gt;  10:&lt;/span&gt;     {&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum11"&gt;  11:&lt;/span&gt;         &lt;span style="color: #0000ff"&gt;if&lt;/span&gt; (n == 0 || n == 1)&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum12"&gt;  12:&lt;/span&gt;             &lt;span style="color: #0000ff"&gt;return&lt;/span&gt; n;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum13"&gt;  13:&lt;/span&gt;         &lt;span style="color: #0000ff"&gt;else&lt;/span&gt;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum14"&gt;  14:&lt;/span&gt;             &lt;span style="color: #0000ff"&gt;return&lt;/span&gt; Fibonacci(n - 1) + Fibonacci(n - 2);&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum15"&gt;  15:&lt;/span&gt;     }&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum16"&gt;  16:&lt;/span&gt; }&lt;/pre&gt;
+&lt;!--CRLF--&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Assembler&lt;/p&gt;
+
+&lt;div style="border-bottom: silver 1px solid; text-align: left; border-left: silver 1px solid; padding-bottom: 4px; line-height: 12pt; background-color: #f4f4f4; margin: 20px 0px 10px; padding-left: 4px; width: 97.5%; padding-right: 4px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; max-height: 200px; font-size: 8pt; overflow: auto; border-top: silver 1px solid; cursor: text; border-right: silver 1px solid; padding-top: 4px" id="codeSnippetWrapper"&gt;
+  &lt;div style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px" id="codeSnippet"&gt;
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum1"&gt;   1:&lt;/span&gt; .model tiny&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum2"&gt;   2:&lt;/span&gt; .code&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum3"&gt;   3:&lt;/span&gt; org    100h&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum4"&gt;   4:&lt;/span&gt; rt:&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum5"&gt;   5:&lt;/span&gt; mov    ax,cs&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum6"&gt;   6:&lt;/span&gt; mov    ds,ax&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum7"&gt;   7:&lt;/span&gt; mov    es,ax&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum8"&gt;   8:&lt;/span&gt; cld&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum9"&gt;   9:&lt;/span&gt; push    23&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum10"&gt;  10:&lt;/span&gt; call    fib&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum11"&gt;  11:&lt;/span&gt; call    print_eax&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum12"&gt;  12:&lt;/span&gt; ret&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum13"&gt;  13:&lt;/span&gt;     push    bp&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum14"&gt;  14:&lt;/span&gt; mov    bp,sp&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum15"&gt;  15:&lt;/span&gt; mov    di,offset fib_array+2&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum16"&gt;  16:&lt;/span&gt; mov    cx,[bp+4]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum17"&gt;  17:&lt;/span&gt; loop:&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum18"&gt;  18:&lt;/span&gt; mov    ax,[di-1]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum19"&gt;  19:&lt;/span&gt; add    ax,[di-2]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum20"&gt;  20:&lt;/span&gt; inc    di&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum21"&gt;  21:&lt;/span&gt; mov    [di],ax&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum22"&gt;  22:&lt;/span&gt; loop    fib_loop&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum23"&gt;  23:&lt;/span&gt; mov    bx,[bp+4]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum24"&gt;  24:&lt;/span&gt; mov    ax,word ptr [bx+fib_array]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum25"&gt;  25:&lt;/span&gt; mov    [bp+4],ax&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum26"&gt;  26:&lt;/span&gt; pop    bp&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum27"&gt;  27:&lt;/span&gt; ret&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum28"&gt;  28:&lt;/span&gt; t_eax:&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum29"&gt;  29:&lt;/span&gt; mov    bp,sp&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum30"&gt;  30:&lt;/span&gt; mov    di,offset outbyte&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum31"&gt;  31:&lt;/span&gt; mov    ax,[bp+2]&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum32"&gt;  32:&lt;/span&gt; mov    bx,10&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum33"&gt;  33:&lt;/span&gt; xor    cx,cx&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum34"&gt;  34:&lt;/span&gt; p:    xor    dx,dx&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum35"&gt;  35:&lt;/span&gt; div    bx&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum36"&gt;  36:&lt;/span&gt; add    dl,48&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum37"&gt;  37:&lt;/span&gt; push    dx&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum38"&gt;  38:&lt;/span&gt; inc    cx&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum39"&gt;  39:&lt;/span&gt; test    ax,ax&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum40"&gt;  40:&lt;/span&gt; jnz    divlp&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum41"&gt;  41:&lt;/span&gt; e:    pop    ax&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum42"&gt;  42:&lt;/span&gt; stosb&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum43"&gt;  43:&lt;/span&gt; loop    store&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum44"&gt;  44:&lt;/span&gt; mov    byte ptr [di],'$'&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum45"&gt;  45:&lt;/span&gt; mov    dx, offset outtxt&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum46"&gt;  46:&lt;/span&gt; mov    ah,9&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum47"&gt;  47:&lt;/span&gt; int     21h&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum48"&gt;  48:&lt;/span&gt; ret 2&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum49"&gt;  49:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum50"&gt;  50:&lt;/span&gt; xt  db  &amp;quot;23rd Fibonacci number is &amp;quot;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum51"&gt;  51:&lt;/span&gt; xt_l = $-outtxt+1&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum52"&gt;  52:&lt;/span&gt; yte    db  &amp;quot;00000000&amp;quot;&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum53"&gt;  53:&lt;/span&gt; array db 1,1&lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: #f4f4f4; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum54"&gt;  54:&lt;/span&gt;&amp;#160; &lt;/pre&gt;
+&lt;!--CRLF--&gt;
+
+    &lt;pre style="border-bottom-style: none; text-align: left; padding-bottom: 0px; line-height: 12pt; border-right-style: none; background-color: white; margin: 0em; padding-left: 0px; width: 100%; padding-right: 0px; font-family: &amp;#39;Courier New&amp;#39;, courier, monospace; direction: ltr; border-top-style: none; color: black; font-size: 8pt; border-left-style: none; overflow: visible; padding-top: 0px"&gt;&lt;span style="color: #606060" id="lnum55"&gt;  55:&lt;/span&gt; end _start&lt;/pre&gt;
+&lt;!--CRLF--&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Pasted from: &lt;a title="http://cubbi.com/fibonacci/asm.html" href="http://cubbi.com/fibonacci/asm.html"&gt;http://cubbi.com/fibonacci/asm.html&lt;/a&gt;. Ps: I’m not sure if this code even works.&lt;/p&gt;
+
+&lt;p&gt;And yes, I realize that the x86 instruction set is younger than 50 years, but I thought it would be a good example, and it’s still assembler code, which is low level enough! When the C# get’s executed it’s probably going to end up looking something like the assembler code above, and that’s the main trick of compilers - they translate high level languages into low level machine code and instruction sets. &lt;/p&gt;
+
+&lt;p&gt;This it’s a nothing more than amazing! In the modern language I used the concepts of recursion, functions, strong typing, classes etc. Now compare it with the Assembler code, which I by the way almost seems like a foreign language to me. This modern language really enabled me to do more with less.&lt;/p&gt;
+
+&lt;p&gt;So if you think that the modern languages today are crappy, or they should have been different in any way, you should try to think about what if we had to implement business applications in assembler? Compilers are one of the most technical challenging problems we face in our career as programmers. I think we owe the creators of modern languages a really big thank you!&lt;/p&gt;
+
+&lt;p&gt;And if you are in a situation where you maintain crappy legacy code implemented in C#, VB 6, JavaScript etc. Imagine if that code was implemented in assembler - it would be much worse that you can even imagine, and it probably would end up being your worst nightmare. The only one you can blame for bad code in modern languages is yourself and your fellow engineers. &lt;/p&gt;
+
+&lt;p&gt;It’s not only the languages that have evolved, but also the frameworks. Today we have tons of commercial and open source frameworks, which also is a key enabler when developing high quality software. The frameworks I can come up with at the top of my head are;.NET, Java, Apache, Hibernate, Ant, CruiseControl.net, Silverlight, Mono, Moonlight, Struts, Ruby on Rails, SPRING etc. And let’s not forget the tooling; Visual Studio .NET, Eclipse, IntelliJ, TextMate, TextMate, SharpDevelop etc. And the funny part is that since we are getting better and better tools, the development speed of these languages, frameworks and tools seems to go even faster. &lt;/p&gt;
+
+&lt;h3&gt;Nobody is happy?&lt;/h3&gt;
+
+&lt;p&gt;So even though you are not happy with what you are doing in your daily job as a programmer, imagine how it would be if you had to maintain assembler code, how it would be to write ORM mapping by hand or if you had to use Notepad as you development environment – now it doesn’t seems so awful, does it? &lt;/p&gt;
+
+&lt;p&gt;But don’t fool yourself to think that’s something wrong with the languages, frameworks and the tools; a fool with a tool is still a fool! Even though it’s possible to do amazing things, programming is still something that takes hard work and lots of practice if you want to become a master. If you are serious about becoming a programmer, you should know that you have to face at least &lt;a href="http://radar.oreilly.com/2008/12/hard-work-and-practice-in-programming.html" target="_blank"&gt;10 years of practice&lt;/a&gt; to really master it. Programming is really, really hard - period. When it becomes your profession, it’s not only about creating cool stuff, it’s about creating cool stuff with high quality, and it’s the last part that’s hard. I’ve been programming professionally for 8 years, and I still feel like a young journeyman when I read books by Robert C. Martin, Eric Evans, Andy Hunt, Dave Thomas, Craig Larman, Martin Fowler etc. I realize I have still a long way to go before I can call myself a master. &lt;/p&gt;
+
+&lt;p&gt;So even though we can do all these amazing things, you still need to learn how to master the craftsmanship of software development, and if you are serious about it, expect to practice for a long time. You can expect much from this industry, but it will also expect much from you! So if you want to become a happy developer, you need to become a decent software craftsman, and expect plenty of work to achieve that!&lt;/p&gt;</Content>
+      <Created>2009-03-23T22:31:26.896024+01:00</Created>
+      <Modified>2009-03-23T22:44:31.4641776+01:00</Modified>
+      <EntryId>6f2cde27-ee41-4b3c-821b-1234c68ef7e2</EntryId>
+      <Description />
+      <Title>Everything is amazing, and nobody is happy&amp;hellip;</Title>
+      <Categories>programming</Categories>
+      <Author>admin</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

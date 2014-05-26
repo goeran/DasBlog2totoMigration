@@ -1,7 +1,0 @@
-title: "Capgemini Norway’s technology blog is online!"
-author: Gøran Hansen
-date: 2009/05/13
-id: b2dd0c08-6394-46cd-8bc9-83181a94efda
-tags: capgemini
-
-<p>My employer, Capgemini, just released a <a href="http://www.no.capgemini.com/teknologiblogg/" target="_blank">Norwegian technology blog</a>. We have been working on this project for a while and have finally released it! Puh!</p>  <p><a href="http://www.no.capgemini.com/teknologiblogg/2009/05/teknisk_gjeld.php" target="_blank">My first post</a> on this blog was about <a href="http://www.youtube.com/watch?v=pqeJFYwnkjE" target="_blank">technical debt</a>. I was so inspired by Ward Cunningham’s metaphor that I just had to write about it. Anyway, the content of the blog is in Norwegian. If you are a non-Norwegian reader, it’s probably not in your area of interest.</p>  <p>Feel free to visit <a href="http://www.no.capgemini.com/teknologiblogg/" target="_blank">our blog</a> and <a href="http://twitter.com/capgemininorge" target="_blank">follow us on twitter</a>.</p>

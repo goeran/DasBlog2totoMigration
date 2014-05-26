@@ -1,8 +1,9 @@
+# coding: utf-8
 require 'htmlentities'
-require 'lib/prettyprint'
+require 'prettyprinter'
 
 class Entry
-  include PrettyPrint
+  include PrettyPrinter
   attr_accessor :Id
   attr_accessor :Date
   attr_accessor :Title
@@ -38,14 +39,24 @@ class Entry
   
   def generate_valid_filename(str)
     result = remove_html_encoding(self.Title)
-    result.gsub!(/\s/, "-")
-    result.gsub!(/(\$|\!|\&|\#|\||\/|\@|;|\.|,|\?|\:|”|\"|’|\')/, "")
+    result = result.strip
+    result.gsub!(/\s/, "-")    
+    result.gsub!(/(\$|\!|\&|\#|\||\/|\@|;|\.|,|\?|\:|”|\"|’|\'|\(|\)|…)/, "")
     result
+  end
+  
+  def generate_dasblog_friendly_link
+      result = remove_html_encoding(self.Title)
+      result = result.strip
+      result.gsub!(/^[a-z]|\s+[a-z]/) { |a| a.upcase }      
+      result.gsub!(/\s/, "")
+      result.gsub!(/(\$|\!|\&|\#|\||\/|\@|;|\.|,|\?|\:|”|\"|’|\'|\(|\)|…)/, "") 
+      result
   end
   
   def to_yaml
     id = "id: #{self.Id}"
-    title = "title: \"#{remove_html_encoding(self.Title).gsub /\"/, "\\\""}\""
+    title = "title: \"#{remove_html_encoding(self.Title.strip).gsub /\"/, "\\\""}\""
     author = "author: #{self.Author}"
     date = "date: #{toto_date}"
     tags_str = ""
